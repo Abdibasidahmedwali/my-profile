@@ -1,0 +1,1109 @@
+
+html{
+    scroll-behavior: smooth;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    text-decoration-color: #80adad;
+    text-decoration-thickness: 2px;
+    text-decoration-style: dashed;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;    
+    }
+    html, body{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        text-decoration: none;
+        text-decoration-color: #80adad;
+        text-decoration-thickness: 2px;
+        text-decoration-style: dashed;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: color 0.3s ease;  
+        background-color: #f0f0f0;
+        color: #333;
+        display: flex;
+        flex-direction: column;  
+    }
+body                                                                   
+{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+nav                                                                   
+{
+    background-color: #82b7ed;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 20px;
+}
+nav ul                                                              
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}   
+nav ul li                                                           
+{
+    display: inline;
+    margin-right: 20px;
+}
+nav ul li a                                                       
+{
+    color: white;
+    text-decoration: none;
+}
+nav ul li a:hover                                               
+{
+    text-decoration: underline;
+}
+h1                                                                 
+{
+    color: #333;
+    font-size: 24px;
+}
+h2                                                                 
+{
+    color: #666;
+    font-size: 20px;
+}
+h3                                                                 
+{
+    color: #999;
+    font-size: 18px;
+}
+p                                                                 
+{
+    color: #444;
+    font-size: 16px;
+}   
+p strong                                                           
+{
+    font-weight: bold;
+}
+p em                                                              
+{
+    font-style: italic;
+}
+p a                                                               
+{
+    color: #0066cc;
+    text-decoration: none;
+}
+p a:hover                                                       
+{
+    text-decoration: underline;
+}   
+
+ul                                                                
+{
+    list-style-type: disc;
+    margin-left: 20px;
+}
+ol                                                                
+{
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+ul li                                                           
+{
+    margin-bottom: 5px;
+}
+ol li                                                           
+{
+    margin-bottom: 5px;
+}
+table                                                              
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+table th                                                       
+{
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+}
+table td                                                       
+{
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+table tr:nth-child(even)                                       
+{
+    background-color: #f9f9f9;
+}
+table tr:hover                                                   
+{
+    background-color: #f1f1f1;
+}
+img                                                                
+{
+    max-width: 100%;
+    height: auto;
+}
+img.thumbnail                                                   
+{
+    width: 150px;
+    height: auto;
+}
+img.rounded                                                   
+{
+    border-radius: 50%;
+}
+img.border                                                   
+{
+    border: 2px solid #ccc;
+}
+img.shadow                                                   
+{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}   
+header                                                             
+{
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+header h1                                                       
+{
+    margin: 0;
+    font-size: 36px;
+}
+header p                                                        
+{
+    font-size: 18px;
+    color: #666;
+}
+footer                                                             
+{
+    background-color: #efeeee05;
+    color: white;
+    text-align: center;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}   
+footer p                                                       
+{
+    margin: 0;
+    font-size: 14px;
+}
+footer a                                                       
+{
+    color: white;
+    text-decoration: none;
+}
+footer a:hover                                               
+{
+    text-decoration: underline;
+}
+
+button                                                             
+{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover                                                     
+{
+    background-color: #45a049;
+}
+button:disabled                                                
+{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+button.primary                                                   
+{
+    background-color: #007bff;
+}
+button.primary:hover                                             
+{
+    background-color: #0056b3;
+}
+button.secondary                                                
+{
+    background-color: #6c757d;
+}
+button.secondary:hover                                           
+{
+    background-color: #5a6268;
+}
+button.success                                                  
+{
+    background-color: #28a745;
+}
+button.success:hover                                             
+{
+    background-color: #218838;
+}
+button.danger                                                   
+{
+    background-color: #dc3545;
+}
+button.danger:hover                                              
+{
+    background-color: #c82333;
+}   
+main                                                               
+{
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+section                                                           
+{
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;  
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+section h2                                                     
+{
+    margin-top: 0;
+}
+section p                                                       
+{
+    margin-bottom: 10px;
+}
+section ul                                                     
+{
+    margin-left: 20px;
+}
+section ol                                                     
+{
+    margin-left: 20px;
+}
+section img                                                   
+{
+    margin: 10px 0;
+}
+section table                                                
+{
+    margin: 10px 0;
+}
+section blockquote                                           
+{
+    border-left: 5px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+}       
+blockquote p                                                 
+{
+    margin: 0;
+    font-style: italic;
+}
+blockquote cite                                              
+{
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+blockquote cite:before                                       
+{
+    content: "— ";
+}
+blockquote cite:after                                        
+{
+    content: "";
+}
+code                                                               
+{
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+code:hover                                                       
+{
+    background-color: #e0e0e0;
+}
+code.inline                                                   
+{
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+code.inline:hover                                              
+{
+    background-color: #e0e0e0;
+}
+pre                                                                
+{
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 3px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+pre code                                                       
+{
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    font-family: inherit;
+}
+pre code:hover                                                
+{
+    background-color: #e0e0e0;
+}   
+aside                                                              
+{
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-left: 5px solid #ccc;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+aside h2                                                       
+{
+    margin-top: 0;
+}
+aside p                                                        
+{
+    margin-bottom: 10px;
+}
+aside ul                                                       
+{
+    margin-left: 20px;
+}
+aside ol                                                       
+{
+    margin-left: 20px;
+}
+aside img                                                     
+{
+    margin: 10px 0;
+}
+aside table                                                
+{
+    margin: 10px 0;
+}
+aside blockquote                                           
+{
+    border-left: 5px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+}
+aside blockquote p                                           
+{
+    margin: 0;
+    font-style: italic;
+}
+aside blockquote cite                                       
+{
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+aside blockquote cite:before                                 
+{
+    content: "— ";
+}
+aside blockquote cite:after                                
+{
+    content: "";
+}
+aside code                                                      
+{
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+aside code:hover                                                
+{
+    background-color: #e0e0e0;
+}
+aside code.inline                                              
+{
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+aside code.inline:hover                                         
+{
+    background-color: #e0e0e0;
+}
+aside pre                                                       
+{
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 3px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+aside pre code                                                
+{
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    font-family: inherit;
+}
+aside pre code:hover                                           
+{
+    background-color: #e0e0e0;
+}
+aside a                                                     
+{
+    color: #0066cc;
+    text-decoration: none;
+}
+aside a:hover                                              
+{
+    text-decoration: underline;
+}
+aside a:visited                                           
+{
+    color: #0056b3;
+}
+aside a:active                                             
+{
+    color: #004085;
+}
+aside a:focus                                              
+{
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+aside a:focus:hover                                       
+{
+    outline: 2px solid #004085;
+    outline-offset: 2px;
+}
+aside a:focus:active                                 
+{
+    outline: 2px solid #003366;
+    outline-offset: 2px;
+}
+aside a:focus:visited                                 
+{
+    outline: 2px solid #002244;
+    outline-offset: 2px;
+}
+aside a:focus:link                                    
+{
+    outline: 2px solid #001122;
+    outline-offset: 2px;
+}
+aside a:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}   
+aside a:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}   
+aside a:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}   
+aside a:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+aside a:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+section a:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+section a:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+section a:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+section a:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+section a:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+section a:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+section a:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}   
+section a:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+section a:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.gallery-grid                                                
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+.gallery-grid img                                           
+{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+
+}
+.gallery-grid img:hover                                     
+{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+.gallery-grid img:active                                 
+{
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.gallery-grid img:focus                                 
+{
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:hover                                 
+{
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:active                                 
+{
+    outline: 2px solid #003366;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:visited                                 
+{
+    outline: 2px solid #002244;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:link                                 
+{
+    outline: 2px solid #001122;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}   
+.gallery-grid img:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.gallery-grid img:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.fa-facebook-f                                              
+{
+    color: #3b5998;
+}
+.fa-twitter                                                
+{
+    color: #1da1f2;
+}   
+.fa-instagram                                             
+{
+    color: #e1306c;
+}
+.fa-linkedin                                              
+{
+    color: #0077b5;
+}
+.fa-youtube                                              
+{
+    color: #ff0000;
+}
+.fa-pinterest                                             
+{
+    color: #bd081c;
+}
+.fa-snapchat-ghost                                       
+{
+    color: #fffc00;
+}
+.fa-tiktok                                              
+{
+    color: #69c9d0;
+}   
+.fa-whatsapp                                             
+{
+    color: #25d366;
+}
+.fa-telegram                                             
+{
+    color: #0088cc;
+}
+.fa-reddit                                              
+{
+    color: #ff4500;
+}
+#testimonials                                                
+{
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#testimonials h2                                           
+{
+    margin-top: 0;
+}
+#testimonials p                                             
+{
+    margin-bottom: 10px;
+}
+#testimonials ul                                           
+{
+    margin-left: 20px;
+}
+#testimonials ol                                           
+{
+    margin-left: 20px;
+}
+#testimonials img                                          
+{
+    margin: 10px 0;
+}
+#testimonials table                                       
+{
+    margin: 10px 0;
+}
+#testimonials blockquote                                 
+{
+    border-left: 5px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+}
+#testimonials blockquote p                                 
+{
+    margin: 0;
+    font-style: italic;
+}
+#testimonials blockquote cite                              
+{
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+#testimonials blockquote cite:before                       
+{
+    content: "— ";
+}
+#testimonials blockquote cite:after                        
+{
+    content: "";
+}
+#testimonials code                                          
+{
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+#testimonials code:hover                                    
+{
+    background-color: #e0e0e0;
+}
+#testimonials code.inline                                 
+{
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+#testimonials code.inline:hover                             
+{
+    background-color: #e0e0e0;
+}
+#sidebar                                                           
+{
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#sidebar h2                                                     
+{
+    margin-top: 0;
+}
+#sidebar p                                                       
+{
+    margin-bottom: 10px;
+}
+#sidebar ul                                                     
+{
+    margin-left: 20px;
+}
+#sidebar ol                                                     
+{
+    margin-left: 20px;
+}
+#sidebar img                                                    
+{
+    margin: 10px 0;
+}
+.footer_paragraph                                                
+{
+    margin: 0;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer_paragraph a                                              
+{
+    color: white;
+    text-decoration: none;
+}
+.footer_paragraph a:hover                                        
+{
+    text-decoration: underline;
+}
+.footer_paragraph a:visited                                     
+{
+    color: white;
+}
+.footer_paragraph a:active                                       
+{
+    color: white;
+}
+.footer_paragraph a:focus                                        
+{
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+.footer_paragraph a:focus:hover                                 
+{
+    outline: 2px solid #004085;
+    outline-offset: 2px;
+}
+.footer_paragraph a:focus:active                                
+{
+    outline: 2px solid #003366;
+    outline-offset: 2px;
+}
+.footer_paragraph a:focus:visited                               
+{
+    outline: 2px solid #002244;
+    outline-offset: 2px;
+}
+.footer_paragraph a:focus:link                                
+{
+    outline: 2px solid #001122;
+    outline-offset: 2px;
+}
+.footer_paragraph a:focus:visited                              
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.footer_paragraph a:focus:active                              
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.footer_paragraph a:focus:hover                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+button:focus:link                                 
+{
+    outline: 2px solid #a82525;
+    outline-offset: 2px;
+}
+button:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}   
+button:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+.button:focus:hover                                 
+{
+    outline: 2px solid #7c8eb6;
+    outline-offset: 2px;
+}   
+button:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+button:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+toggle-button                                                
+{
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+toggle-button:hover                                          
+{
+    background-color: #0056b3;
+}
+toggle-button:disabled                                       
+{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+toggle-button.primary                                       
+{
+    background-color: #007bff;
+}
+toggle-button.primary:hover                                 
+{
+    background-color: #0056b3;
+}
+toggle-button.secondary                                     
+{
+    background-color: #6c757d;
+}
+toggle-button.secondary:hover                              
+{
+    background-color: #5a6268;
+}
+toggle-button.success                                       
+{
+    background-color: #28a745;
+}
+}
+toggle-button.success:hover                                
+{
+    background-color: #218838;
+}
+toggle-button.danger                                       
+{
+    background-color: #dc3545;
+}
+toggle-sidebar:focus:link                                 
+{
+    outline: 2px solid #a82525;
+    outline-offset: 2px;
+}
+toggle-sidebar:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}   
+toggle-sidebar:focus:active                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+toggle-sidebar:focus:hover                                 
+{
+    outline: 2px solid #7c8eb6;
+    outline-offset: 2px;
+}
+toggle-sidebar:focus:link                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+toggle-sidebar:focus:visited                                 
+{
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+close-button                                                
+{
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+close-button:hover                                          
+{
+    background-color: #c82333;
+}
+close-button:disabled                                       
+{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+close-button.primary                                       
+{
+    background-color: #007bff;
+}
+
+close-button.primary:hover                                 
+{
+    background-color: #0056b3;
+}
+close-button.secondary                                     
+{
+    background-color: #6c757d;
+}
+close-button.secondary:hover                              
+{
+    background-color: #5a6268;
+}
+close-button.success                                       
+{
+    background-color: #28a745;
+}
+

@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: var(--dark-color);
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, var(--dark-color), var(--primary-color), var(--secondary-color));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="rgba(255,255,255,0.05)" width="100" height="100"/></svg>');
+            animation: patternMove 10s linear infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes patternMove {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            100% {
+                transform: translateX(100px) translateY(100px);
+            }
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: rgba(44, 62, 80, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            padding: 1.5rem 2rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            padding: 1rem 2rem;
+            background-color: rgba(44, 62, 80, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            position: relative;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--light-color) !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%) scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: translateX(10px);
+        }
+
+        .navbar-brand:hover::before {
+            transform: translateY(-50%) scale(1);
+        }
+
+        .nav-item {
+            position: relative;
+            margin: 0 5px;
+        }
+
+        .nav-link {
+            color: var(--light-color) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 8px 15px !important;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after,
+        .navbar-toggler-icon {
+            width: 100%;
+            height: 2px;
+            background-color: var(--light-color);
+            display: block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+
+        .navbar-toggler-icon::before {
+            top: -8px;
+        }
+
+        .navbar-toggler-icon::after {
+            bottom: -8px;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+            background-color: transparent;
+            transform: rotate(180deg);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: rgba(44, 62, 80, 0.98);
+                padding: 1rem;
+                border-radius: 10px;
+                margin-top: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(10px);
+                transform-origin: top;
+                transform: scaleY(0);
+                opacity: 0;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .navbar-collapse.show {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+
+            .nav-item {
+                opacity: 0;
+                transform: translateX(-20px);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .navbar-collapse.show .nav-item {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(2) {
+                transition-delay: 0.2s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(3) {
+                transition-delay: 0.3s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(4) {
+                transition-delay: 0.4s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(5) {
+                transition-delay: 0.5s;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .hero-buttons {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .hero-btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            margin: 0 10px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-btn:hover::before {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.2s forwards;
+        }
+
+        .scroll-arrow {
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-arrow::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: scrollIndicator 2s infinite;
+        }
+
+        @keyframes scrollIndicator {
+            0% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, 20px);
+                opacity: 0;
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            background: var(--secondary-color);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation-delay: -2s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            right: 15%;
+            background: var(--accent-color);
+            clip-path: circle(50% at 50% 50%);
+            animation-delay: -4s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            top: 30%;
+            right: 30%;
+            background: var(--primary-color);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation-delay: -6s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(20px, -20px) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(0, 40px) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(-20px, -20px) rotate(270deg);
+            }
+        }
+
+        .typing-text {
+            border-right: 3px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: white
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: rgba(236, 240, 241, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card {
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 45px 0 rgba(31, 38, 135, 0.47);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .skill-card i {
+            transition: all 0.5s ease;
+        }
+
+        .skill-card:hover i {
+            transform: scale(1.2) translateZ(20px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 15px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced hover effects */
+        .btn {
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Social Icons Animation */
+        .social-icons a {
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: var(--secondary-color) !important;
+        }
+
+        /* Paragraph Section Styles */
+        .paragraph-section {
+            padding: 120px 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.1;
+            animation: floatAnimation 15s infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: -2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            top: 40%;
+            left: 50%;
+            animation-delay: -4s;
+        }
+
+        @keyframes floatAnimation {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        .paragraph-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .paragraph-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .paragraph-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .paragraph-card h3 {
+            color: var(--light-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .paragraph-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.8s ease;
+        }
+
+        .paragraph-card.visible h3::after {
+            width: 100%;
+        }
+
+        .paragraph-card p {
+            color: var(--light-color);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.8s ease 0.3s;
+        }
+
+        .paragraph-card.visible p {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .highlight-text {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .paragraph-card .btn-custom {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 500;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.5s ease 0.6s;
+        }
+
+        .paragraph-card.visible .btn-custom {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .paragraph-card .btn-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transform: rotate(-45deg) scale(0);
+            transition: all 0.6s ease 0.2s;
+        }
+
+        .paragraph-card.visible .feature-icon {
+            transform: rotate(0) scale(1);
+        }
+
+        .feature-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        /* Add this to enhance existing animations */
+        .animate-on-scroll {
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Particle Effect */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .highlight-gradient {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-stack:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .tech-stack i {
+            margin-right: 5px;
+        }
+
+        .interest-icon {
+            font-size: 1.5rem;
+            margin: 0 5px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .paragraph-card:hover .interest-icon {
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Add these new styles in the <style> section */
+        .quran-card {
+            background: linear-gradient(135deg, rgba(26, 32, 44, 0.9), rgba(45, 55, 72, 0.9));
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quran-card::before {
+            content: '﷽';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: 'Traditional Arabic', serif;
+        }
+
+        .quran-verse {
+            font-family: 'Traditional Arabic', serif;
+            font-size: 2rem;
+            line-height: 1.8;
+            text-align: right;
+            margin-bottom: 20px;
+            color: var(--light-color);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .quran-translation {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.2s;
+        }
+
+        .verse-reference {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.4s;
+        }
+
+        .quran-card.visible .quran-verse,
+        .quran-card.visible .quran-translation,
+        .quran-card.visible .verse-reference {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .islamic-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><path fill="none" stroke="rgba(255,255,255,0.05)" d="M20,0C20,0,0,20,0,40c0,20,20,40,40,40c20,0,40-20,40-40c0-20-20-40-40-40C40,0,20,20,20,0z"/></svg>');
+            background-size: 80px 80px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .verse-change-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .verse-change-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .verse-loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Enhanced Footer Styles */
+        .footer {
+            background: rgba(44, 62, 80, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="rgba(255,255,255,0.03)" width="100" height="100"/></svg>');
+            background-size: 30px 30px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .footer-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+
+        .footer-wave .shape-fill {
+            fill: var(--light-color);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            padding: 80px 0 40px;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .footer-col:hover .footer-title::after {
+            width: 100px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+            transform: translateX(-20px);
+            opacity: 0;
+            animation: slideInRight 0.5s ease forwards;
+        }
+
+        .footer-links li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .footer-links li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .footer-links li:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .footer-links li:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            transform: translateX(10px);
+        }
+
+        .footer-links a:hover i {
+            transform: scale(1.2);
+        }
+
+        .footer-social {
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--light-color);
+            margin-right: 10px;
+            transition: all 0.5s ease;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .social-icon:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .social-icon:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .social-icon:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .social-icon:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .footer-newsletter {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .footer-newsletter input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: var(--light-color);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-newsletter input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            outline: none;
+        }
+
+        .footer-newsletter button {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .footer-newsletter button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Remove these portfolio-related styles */
+        .portfolio-item,
+        .portfolio-overlay,
+        .portfolio-item:hover .portfolio-overlay,
+        .portfolio-item img,
+        .portfolio-item:hover img {
+            display: none;
+        }
+
+        /* Glass Morphism Base Styles */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* Enhanced Gradient Hover Effects */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            transition: all 0.5s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Glass Effect for Form Controls */
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Enhanced Card Hover Effects */
+        .skill-card:hover,
+        .paragraph-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 45px 0 rgba(31, 38, 135, 0.47);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Gradient Text Effect */
+        .gradient-text {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: all 0.5s ease;
+        }
+
+        .gradient-text:hover {
+            background: linear-gradient(120deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        /* Glass Effect for Footer */
+        .footer {
+            background: rgba(44, 62, 80, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Enhanced Social Icons */
+        .social-icon {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* Glass Effect for Navigation Menu */
+        .nav-link {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            margin: 5px;
+            transition: all 0.5s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Particle effect container -->
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            <i class="fas fa-user"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">
+                            <i class="fas fa-cogs"></i>
+                            <span>Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to My World</h1>
+            <h2 class="hero-subtitle typing-text">Full-Stack Developer & Creative Coder</h2>
+            <p class="hero-text">I'm Abdibasid, a full-stack developer who loves building interactive, visually rich
+                experiences. I mix creativity with code to craft portfolios, apps, and digital art that stand out.</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn hero-btn">About Me</a>
+                <a href="#contact" class="btn hero-btn">Let's Connect</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- New Paragraph Section -->
+    <section class="paragraph-section">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="paragraph-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Full-Stack Developer</h3>
+                        <p>I'm <span class="highlight-gradient">Abdibasid</span>, a full-stack developer who loves
+                            building interactive, visually rich experiences. I mix creativity with code to craft
+                            portfolios, apps, and digital art that stand out. Based in Cairo, I specialize in creating
+                            immersive digital experiences that blend functionality with aesthetic appeal.</p>
+                        <div class="tech-stack-container mt-3 mb-4">
+                            <span class="tech-stack"><i class="fab fa-react"></i>React</span>
+                            <span class="tech-stack"><i class="fab fa-js"></i>JavaScript</span>
+                            <span class="tech-stack"><i class="fab fa-css3"></i>Tailwind</span>
+                        </div>
+                        <a href="#contact" class="btn btn-custom">Let's Create Together</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="paragraph-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>Creative Technologist</h3>
+                        <p>By day, I'm crafting slick interfaces with <span class="highlight-gradient">React +
+                                Tailwind</span>, adding deep 3D flourishes with React Three Fiber. My projects feature
+                            interactive elements like flying cars, waving Somali flags, and bouncing footballs.</p>
+                        <div class="d-flex justify-content-center mt-4">
+                            <i class="fas fa-car interest-icon" style="animation-delay: 0.1s"></i>
+                            <i class="fas fa-flag interest-icon" style="animation-delay: 0.2s"></i>
+                            <i class="fas fa-futbol interest-icon" style="animation-delay: 0.3s"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <div class="paragraph-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-chess-knight"></i>
+                        </div>
+                        <h3>Beyond The Code</h3>
+                        <p>When I'm not animating with <span class="highlight-gradient">Framer Motion</span> or
+                            perfecting React Three Fiber scenes, you'll find me immersed in chess tactics, studying
+                            Quran verses, or analyzing football strategies. Every project I create is infused with
+                            creative touches, from glitchy gradients to hidden Konami-code easter eggs.</p>
+                        <p>My goal? To blend creativity, culture, and code into unforgettable digital experiences. Let's
+                            build something legendary together.</p>
+                        <div class="d-flex justify-content-center mt-4">
+                            <i class="fas fa-chess interest-icon" style="animation-delay: 0.4s"></i>
+                            <i class="fas fa-book interest-icon" style="animation-delay: 0.5s"></i>
+                            <i class="fas fa-trophy interest-icon" style="animation-delay: 0.6s"></i>
+                        </div>
+                        <a href="#contact" class="btn btn-custom mt-4">Let's Collaborate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this after the paragraph section and before the about section -->
+    <section class="quran-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="quran-card animate-on-scroll">
+                        <div class="islamic-pattern"></div>
+                        <div class="verse-loader"></div>
+                        <div class="verse-content">
+                            <p class="quran-verse" dir="rtl"></p>
+                            <p class="quran-translation"></p>
+                            <p class="verse-reference"></p>
+                        </div>
+                        <div class="text-center">
+                            <button class="verse-change-btn">
+                                <i class="fas fa-sync-alt me-2"></i>Change Verse
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 animate-on-scroll">
+                    <h2 class="mb-4">About Me</h2>
+                    <p class="lead"> I'm Abdibasid — a creative full-stack developer building playful, animated, and
+                        out-of-this-world web experiences. If it glows, moves, or breaks the rules, I'm probably behind
+                        it.</p>
+                    <p> I'm a passionate developer with expertise in creating beautiful and functional web applications.
+                    </p>
+                    <div class="mt-4">
+                        <a href="https://github.com/abdibasidahmedwali" class="btn btn-dark me-3" target="_blank"><i
+                                class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.instagram.com/abdi_basid12" class="btn btn-primary me-3" target="_blank"><i
+                                class="fab fa-instagram"></i> Instagram</a>
+                        <a href="https://www.facebook.com/abdibasid.ahmed" class="btn btn-info" target="_blank"><i
+                                class="fab fa-facebook"></i> Facebook</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate-on-scroll">
+                    <img src="image/me.jpg" alt="About Me" class="img-fluid rounded"
+                        style="max-width: 80%; transition: all 0.5s ease; filter: brightness(1.1) contrast(1.1);"
+                        onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="text-center mb-5">My Skills</h2>
+            <div class="row">
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-code fa-3x mb-3 text-primary"></i>
+                        <h4>Web Development</h4>
+                        <p>HTML5, CSS3, JavaScript</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-palette fa-3x mb-3 text-success"></i>
+                        <h4>Design</h4>
+                        <p>UI/UX, Responsive Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-mobile-alt fa-3x mb-3 text-warning"></i>
+                        <h4>Mobile-First</h4>
+                        <p>Responsive Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 animate-on-scroll">
+                    <!-- Add contact info before the form -->
+                    <div class="contact-info text-center mb-5">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone fa-2x mb-3 text-primary"></i>
+                                    <h5>Phone</h5>
+                                    <p><a href="tel:+201152833293" class="text-white">+20 115 283 3293</a></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope fa-2x mb-3 text-primary"></i>
+                                    <h5>Social Media</h5>
+                                    <p>
+                                        <a href="https://www.facebook.com/abdibasidahmed" class="text-white me-3"
+                                            target="_blank">Facebook</a>
+                                        <a href="https://www.instagram.com/abdi_basid12" class="text-white me-3"
+                                            target="_blank">Instagram</a>
+                                        <a href="https://www.linkedin.com/in/cabdi-basid-axmadwali" class="text-white"
+                                            target="_blank">LinkedIn</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 footer-col">
+                        <h3 class="footer-title">About Me</h3>
+                        <p class="mb-4">Somali-born, Cairo-based full-stack developer passionate about creating
+                            immersive digital experiences with clean code and modern design.</p>
+                        <div class="footer-social">
+                            <a href="https://github.com/abdibasidahmedwali" class="social-icon" target="_blank"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://www.facebook.com/abdibasidahmed" class="social-icon" target="_blank"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/abdi_basid12" class="social-icon" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/cabdi-basid-axmadwali" class="social-icon"
+                                target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="tel:+201152833293" class="social-icon"><i class="fas fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 footer-col">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#home"><i class="fas fa-chevron-right"></i>Home</a></li>
+                            <li><a href="#about"><i class="fas fa-chevron-right"></i>About</a></li>
+                            <li><a href="#skills"><i class="fas fa-chevron-right"></i>Skills</a></li>
+                            <li><a href="#contact"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-12 footer-col">
+                        <h3 class="footer-title">Newsletter</h3>
+                        <p class="mb-4">Subscribe to receive updates about my latest work and tech articles.</p>
+                        <div class="footer-newsletter">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit">
+                                <i class="fas fa-paper-plane me-2"></i>Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Abdibasid. All rights reserved | Designed with <i class="fas fa-heart text-danger"></i>
+                    and clean code</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        $(document).ready(function () {
+            $('a.nav-link').on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800);
+                }
+            });
+
+            // Enhanced animation on scroll
+            function checkVisibility() {
+                $('.animate-on-scroll').each(function () {
+                    var elementTop = $(this).offset().top;
+                    var elementVisible = 150;
+                    var windowHeight = $(window).height();
+                    var scrollY = $(window).scrollTop();
+
+                    if (elementTop < (windowHeight + scrollY - elementVisible)) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+
+            // Check elements visibility on load and scroll
+            $(window).on('load scroll', checkVisibility);
+
+            // Enhanced navbar animations
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+
+            // Active link highlighting
+            $('.nav-link').on('click', function () {
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            // Smooth scroll with active state update
+            $(window).on('scroll', function () {
+                var scrollDistance = $(window).scrollTop();
+
+                // Assign active class to nav links while scrolling
+                $('section').each(function (i) {
+                    if ($(this).position().top <= scrollDistance + 100) {
+                        $('.nav-link.active').removeClass('active');
+                        $('.nav-link').eq(i).addClass('active');
+                    }
+                });
+            }).scroll();
+
+            // Mobile menu animation
+            $('.navbar-toggler').on('click', function () {
+                if (!$('.navbar-collapse').hasClass('show')) {
+                    $('.nav-item').css({
+                        'opacity': '0',
+                        'transform': 'translateX(-20px)'
+                    });
+                }
+            });
+
+            // Add parallax effect to hero section
+            $(window).scroll(function () {
+                var scrolled = $(window).scrollTop();
+                $('.hero').css('background-position', 'center ' + -(scrolled * 0.5) + 'px');
+            });
+
+            // Add hover effect for skill cards
+            $('.skill-card').hover(
+                function () {
+                    $(this).find('i').css('transform', 'scale(1.2) translateZ(20px)');
+                },
+                function () {
+                    $(this).find('i').css('transform', 'scale(1) translateZ(0)');
+                }
+            );
+
+            // Enhanced animation for paragraph cards
+            function checkParagraphCards() {
+                $('.paragraph-card').each(function () {
+                    var elementTop = $(this).offset().top;
+                    var elementVisible = 150;
+                    var windowHeight = $(window).height();
+                    var scrollY = $(window).scrollTop();
+
+                    if (elementTop < (windowHeight + scrollY - elementVisible)) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+
+            // Check paragraph cards visibility on load and scroll
+            $(window).on('load scroll', checkParagraphCards);
+
+            // Add hover effect for paragraph cards
+            $('.paragraph-card').hover(
+                function () {
+                    $(this).find('.feature-icon').css('transform', 'rotate(360deg) scale(1.1)');
+                },
+                function () {
+                    $(this).find('.feature-icon').css('transform', 'rotate(0) scale(1)');
+                }
+            );
+
+            // Initialize particles.js
+            particlesJS('particles-js',
+                {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#ffffff"
+                        },
+                        "shape": {
+                            "type": "circle"
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": true
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#ffffff",
+                            "opacity": 0.4,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        }
+                    },
+                    "retina_detect": true
+                }
+            );
+
+            // Scroll indicator click handler
+            $('.hero-scroll-indicator').click(function () {
+                $('html, body').animate({
+                    scrollTop: $('#about').offset().top
+                }, 800);
+            });
+
+            // Dynamic text animation
+            function typeWriter(text, element, speed = 100) {
+                let i = 0;
+                element.html('');
+                function type() {
+                    if (i < text.length) {
+                        element.html(element.html() + text.charAt(i));
+                        i++;
+                        setTimeout(type, speed);
+                    }
+                }
+                type();
+            }
+
+            // Initialize typing animation
+            typeWriter('Creative Developer & Designer', $('.typing-text'));
+
+            // Parallax effect for floating elements
+            $(window).scroll(function () {
+                var scrolled = $(window).scrollTop();
+                $('.floating-element').css('transform', 'translateY(' + (scrolled * 0.3) + 'px)');
+            });
+
+            // Interactive hero buttons
+            $('.hero-btn').hover(
+                function () {
+                    $(this).css('transform', 'translateY(-5px) scale(1.05)');
+                },
+                function () {
+                    $(this).css('transform', 'translateY(0) scale(1)');
+                }
+            );
+
+            // Quran verse functionality
+            const verses = [
+                {
+                    arabic: "وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ",
+                    translation: "Do not lose heart, nor fall into despair, for you will be superior if you are true believers.",
+                    reference: "Surah Al-Imran, Verse 139"
+                },
+                {
+                    arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
+                    translation: "For indeed, with hardship comes ease.",
+                    reference: "Surah Ash-Sharh, Verse 5"
+                },
+                {
+                    arabic: "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
+                    translation: "And whoever relies upon Allah - then He is sufficient for him.",
+                    reference: "Surah At-Talaq, Verse 3"
+                },
+                {
+                    arabic: "رَبِّ زِدْنِي عِلْمًا",
+                    translation: "My Lord, increase me in knowledge.",
+                    reference: "Surah Taha, Verse 114"
+                },
+                {
+                    arabic: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+                    translation: "Indeed, Allah is with the patient.",
+                    reference: "Surah Al-Baqarah, Verse 153"
+                }
+            ];
+
+            let currentVerseIndex = 0;
+
+            function updateVerse(animate = true) {
+                const verse = verses[currentVerseIndex];
+                const $verseContent = $('.verse-content');
+                const $loader = $('.verse-loader');
+
+                if (animate) {
+                    $verseContent.css('opacity', '0');
+                    $loader.show();
+
+                    setTimeout(() => {
+                        $('.quran-verse').text(verse.arabic);
+                        $('.quran-translation').text(verse.translation);
+                        $('.verse-reference').text(verse.reference);
+
+                        $loader.hide();
+                        $verseContent.css('opacity', '1');
+                        $('.quran-card').addClass('visible');
+                    }, 1000);
+                } else {
+                    $('.quran-verse').text(verse.arabic);
+                    $('.quran-translation').text(verse.translation);
+                    $('.verse-reference').text(verse.reference);
+                    $('.quran-card').addClass('visible');
+                }
+            }
+
+            // Initialize first verse
+            updateVerse(false);
+
+            // Change verse button click handler
+            $('.verse-change-btn').click(function () {
+                currentVerseIndex = (currentVerseIndex + 1) % verses.length;
+                updateVerse(true);
+            });
+
+            // Auto change verse every 30 seconds
+            setInterval(() => {
+                currentVerseIndex = (currentVerseIndex + 1) % verses.length;
+                updateVerse(true);
+            }, 30000);
+
+            // Check if verse card is visible
+            function checkQuranCard() {
+                const $card = $('.quran-card');
+                const cardTop = $card.offset().top;
+                const windowHeight = $(window).height();
+                const scrollY = $(window).scrollTop();
+
+                if (cardTop < (windowHeight + scrollY - 150)) {
+                    $card.addClass('visible');
+                }
+            }
+
+            // Check visibility on scroll
+            $(window).on('scroll', checkQuranCard);
+            checkQuranCard(); // Check on load
+
+            // Scroll to Top functionality
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 200) {
+                    $('.scroll-top').addClass('visible');
+                } else {
+                    $('.scroll-top').removeClass('visible');
+                }
+            });
+
+            $('.scroll-top').click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+
+            // Newsletter form animation
+            $('.footer-newsletter input').focus(function () {
+                $(this).parent().addClass('focused');
+            }).blur(function () {
+                if ($(this).val() === '') {
+                    $(this).parent().removeClass('focused');
+                }
+            });
+
+            // Animate footer elements when they come into view
+            function checkFooterAnimation() {
+                var footerTop = $('.footer').offset().top;
+                var windowHeight = $(window).height();
+                var scrollY = $(window).scrollTop();
+
+                if (footerTop < (windowHeight + scrollY - 100)) {
+                    $('.footer').addClass('animate');
+                }
+            }
+
+            $(window).on('scroll', checkFooterAnimation);
+            checkFooterAnimation();
+        });
+    </script>
+</body>
+
+</html>
